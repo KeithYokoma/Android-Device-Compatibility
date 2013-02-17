@@ -1,0 +1,12 @@
+nguage: java
+before_install:
+  - wget http://dl.google.com/android/android-sdk_r21-linux.tgz
+  - tar -zxf android-sdk_r21-linux.tgz
+  - export ANDROID_HOME=~/builds/KeithYokoma/Android-Device-Compatibility/android-sdk-linux
+  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+  - android update sdk --filter platform-tools,android-16 --no-ui --force
+  - cd ~/builds/KeithYokoma/Android-Device-Compatibility/library_test
+  - ant debug install test
+
+notifications:
+  email: false
